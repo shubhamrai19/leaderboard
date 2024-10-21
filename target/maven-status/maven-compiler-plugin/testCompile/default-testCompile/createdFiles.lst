@@ -1,1 +1,5 @@
-com\shubham\leaderboard\LeaderboardApplicationTests.class
+com\shubham\leaderboard\Controller\AuthControllerTest.class
+com\shubham\leaderboard\Controller\GameControllerTest.class
+com\shubham\leaderboard\Controller\ScoreControllerTest.class
+com\shubham\leaderboard\Controller\UserControllerTest.class
+com\shubham\leaderboard\Controller\PlayerControllerTest.class
