@@ -34,7 +34,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public int save(User user) {
-        String sql = "INSERT INTO User (emailId, fullName, passwords) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO user (emailId, fullName, passwords) VALUES (?, ?, ?)";
         return jdbcTemplate.update(sql,
                 user.getEmailId(),
                 user.getFullName(),
@@ -43,7 +43,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public int update(User user) {
-        String sql = "UPDATE User SET emailId = ?, fullName = ?, passwords = ? WHERE id = ?";
+        String sql = "UPDATE user SET emailId = ?, fullName = ?, passwords = ? WHERE id = ?";
         return jdbcTemplate.update(sql,
                 user.getEmailId(),
                 user.getFullName(),
@@ -53,13 +53,13 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public int delete(int userId) {
-        String sql = "DELETE FROM User WHERE id = ?";
+        String sql = "DELETE FROM user WHERE id = ?";
         return jdbcTemplate.update(sql, userId);
     }
 
     @Override
     public Optional<User> findById(int userId) {
-        String sql = "SELECT * FROM User WHERE id = ?";
+        String sql = "SELECT * FROM user WHERE id = ?";
         return jdbcTemplate.query(sql, rowMapper, userId)
                 .stream()
                 .findFirst();
@@ -67,13 +67,13 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<User> findAll() {
-        String sql = "SELECT * FROM User";
+        String sql = "SELECT * FROM user";
         return jdbcTemplate.query(sql, rowMapper);
     }
 
     @Override
     public Optional<User> findByEmail(String email) {
-        String sql = "SELECT * from User where emailId=?";
+        String sql = "SELECT * from user where emailId=?";
         return jdbcTemplate.query(sql, rowMapper, email).stream().findFirst();
     }
 }
